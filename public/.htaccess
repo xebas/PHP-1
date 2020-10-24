@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
 
 	RewriteEngine on
-	RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?action=$1&param1=$2&param2=$3 [L,QSA]
+	RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?action=$1&email=$2&token=$3 [L,QSA]
 
 </IfModule>

@@ -8,14 +8,15 @@
             "email": "mvc@mvc.com"
         }
     ],
-
+    "support": {
+        "issues": "https://github.com/armandolap/mvc-2020"
+    },
     "require": {
         "php": ">=7.0",
-        "components/jquery": ">=3.4.1",
         "twig/twig": ">=2.0",
-        "phpmailer/phpmailer": ">=6.1"
+        "phpmailer/phpmailer": ">=6.1",
+        "verot/class.upload.php": "*"
     },
-
     "autoload": {
         "psr-4": {
             "Core\\": "Core/",

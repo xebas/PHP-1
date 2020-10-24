@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block title %}projects{% endblock %}
+
+{% block body %}
+<!-- header -->
+{% include 'Admin/Templates/header.html' %}
+<div class="d-flex align-items-stretch">
+    <!-- Sidebar Navigation-->
+    {% include 'Admin/Templates/sidebar.html' %}
+    <!-- MAIN CONTENT -->
+    <div class="page-content">
+        <div class="page-header">
+            <div class="container-fluid">
+                <h2 class="h5 no-margin-bottom">Proyectos</h2>
+                <a href="#" class="addProductLink" data-toggle="modal" data-target="#addProjectModal">Añadir proyecto <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <section class="no-padding-top">
+            <div class="container-fluid">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <!-- header -->
+                        {% if dataUserProjects is not defined %}
+                        <h3 class="text-center">No hay proyectos</h3>
+                        {% endif %}
+                        <!-- images -->
+                        <div id="psgal_7_1" class="my-gallery" itemscope itemtype="http://schema.org/ImageObject">
+                            {% for project in dataUserProjects %}
+                            <figure class="col-sm-6 col-lg-3 msnry_item" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageGallery">
+                                <a href="{{ project.image }}" itemprop="contentUrl" data-size="1600x1068">
+                                    <img src="{{ project.image }}" itemprop="thumbnail" alt="{{ project.description }}">
+                                </a>
+                                <figcaption itemprop="caption description">
+                                    <h4>{{ project.title }}</h4>
+                                    <h6>{{ project.description }}</h6>
+                                    <div class="e-d-Project">
+                                        <span class="edit-project" data-toggle="modal" data-title="{{ project.title }}" data-desc="{{ project.description }}" data-id="{{ project.id }}">Editar <i class="fa fa-pencil-square-o"
+                                                aria-hidden="true"></i></span>
+                                        <span class="delete-project" data-toggle="modal" data-title="{{ project.title }}">Eliminar <i class="fa fa-minus-circle" aria-hidden="true"></i></span>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                            {% endfor %}
+                        </div>
+                        <!-- Root element of PhotoSwipe. Must have class pswp. -->
+                        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+                            <!-- Background of PhotoSwipe.
+                            It's a separate element, as animating opacity is faster than rgba(). -->
+                            <div class="pswp__bg"></div>
+                            <!-- Slides wrapper with overflow:hidden. -->
+                            <div class="pswp__scroll-wrap">
+                                <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+                                <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+                                <div class="pswp__container">
+                                    <div class="pswp__item"></div>
+                                    <div class="pswp__item"></div>
+                                    <div class="pswp__item"></div>
+                                </div>
+                                <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+                                <div class="pswp__ui pswp__ui--hidden">
+                                    <div class="pswp__top-bar">
+                                        <!--  Controls are self-explanatory. Order can be changed. -->
+                                        <div class="pswp__counter"></div>
+                                        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                                        <button class="pswp__button pswp__button--share" title="Share"></button>
+                                        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                                        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                                        <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                                        <!-- element will get class pswp__preloader--active when preloader is running -->
+                                        <div class="pswp__preloader">
+                                            <div class="pswp__preloader__icn">
+                                                <div class="pswp__preloader__cut">
+                                                    <div class="pswp__preloader__donut"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                                        <div class="pswp__share-tooltip"></div>
+                                    </div>
+                                    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                                    </button>
+                                    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                                    </button>
+                                    <div class="pswp__caption">
+                                        <div class="pswp__caption__center"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- list projects from DB -->
+<div id="projectsJSON" data-projects="{{ dataUserProjects|json_encode }}"></div>
+<!-- BS MODALS -->
+<!-- Add Modal -->
+<div id="addProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><strong id="exampleModalLabel" class="modal-title">Nuevo Proyecto</strong>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Sube un nuevo proyecto y añádelo a tu colección.</p>
+                <form id="addProjectForm">
+                    <div class="form-group">
+                        <input id="titleProject" name="titleProject" type="text" placeholder="Título" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="descProject" name="descProject" class="form-control" placeholder="Descripción (120 caract. máx.)" rows="5" cols="80"></textarea>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile1" name="imageProject">
+                        <label class="custom-file-label" for="inputGroupFile1" aria-describedby="inputGroupFileAddon" style="background: #2d3035; color: #979a9f; border: 1px solid #444951;">Click para seleccionar la imagen (5Mb máx)</label>
+                    </div>
+                    <div class="rounded-lg text-center p-3 preview">
+                        <img src="" class="img-fluid" id="preview1">
+                    </div>
+                    <div class="form-group">
+                        <button id="submitAddProject" name="submitAddProject" type="submit" class="btn btn-primary button"><span>Añadir proyecto </span></button>
+                    </div>
+                    <div class="addProjectRes response text-center"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Edit Modal-->
+<div id="editProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><strong id="exampleModalLabel" class="modal-title">Editar Proyecto</strong>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Edita los siguientes campos del proyecto.</p>
+                <form id="editProjectForm">
+                    <div class="form-group">
+                        <label class="form-control-label">Título</label>
+                        <input id="etitleProject" name="etitleProject" type="text" class="form-control etitleProject">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label">Descripción (120 caract. máx.)</label>
+                        <textarea id="eDescProject" name="eDescProject" class="form-control eDescProject" rows="5" cols="80"></textarea>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile2" name="eImageProject">
+                        <label class="custom-file-label" for="inputGroupFile2" aria-describedby="inputGroupFileAddon2" style="background: #2d3035; color: #979a9f; border: 1px solid #444951;">Click para cambiar la imagen (5Mb máx)</label>
+                    </div>
+                    <div class="rounded-lg text-center p-3 preview">
+                        <img src="" class="img-fluid" id="preview2">
+                    </div>
+                    <!-- campos ocultos -->
+                    <input class="idProject" name="idProject" type="hidden">
+                    <div class="form-group">
+                        <button id="submitEditProject" name="submitEditProject" type="submit" class="btn btn-primary button"><span>Modificar </span></button>
+                    </div>
+                    <div class="editProjectRes response text-center"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- delete Modal-->
+<div id="deleteProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Estas seguro que quieres eliminar este proyecto? : <span id="dtitleProject"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button id="submitDeleteProject" name="submitDeleteProject" class="btn btn-primary button"><span>Eliminar proyecto </span></button>
+            </div>
+            <div class="delProjectRes response text-center"></div><br>
+        </div>
+    </div>
+</div>
+{% endblock %}

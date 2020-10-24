@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}account{% endblock %}
+
+{% block body %}
+<!-- header -->
+{% include 'Admin/Templates/header.html' %}
+<div class="d-flex align-items-stretch">
+    <!-- Sidebar Navigation-->
+    {% include 'Admin/Templates/sidebar.html' %}
+    <!-- MAIN CONTENT -->
+    <div class="page-content">
+        <div class="page-header">
+            <div class="container-fluid">
+                <h2 class="h5 no-margin-bottom">Mi cuenta</h2>
+            </div>
+        </div>
+        <section class="no-padding-top">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Edit Account Form-->
+                    <div class="col-lg-6">
+                        <div class="block block-account">
+                            <div class="title"><strong class="d-block">Datos de tu cuenta</strong><span class="d-block">Puedes modificar los siguientes datos de tu cuenta</span></div>
+                            <div class="block-body form-inline">
+                                <!-- Edit Nick Form -->
+                                <form id="editNickForm">
+                                    <div class="input-group form-group-material">
+                                        <input type="text" id="editNick" name="editNick" class="form-control" placeholder="{{ dataUser.nick }}">
+                                        <div class="input-group-append">
+                                            <button id="submitEditNick" name="submitEditNick" type="submit" class="btn btn-primary">Modificar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <!-- Edit Pass Form -->
+                                <form id="editPassForm">
+                                    <div class="input-group form-group-material">
+                                        <input type="text" id="editPass" name="editPass" class="form-control" placeholder="{{ pass }}">
+                                        <div class="input-group-append">
+                                            <button id="submitEditPass" name="submitEditPass" type="submit" class="btn btn-primary"><span>Modificar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="userNickPassAccRes response"></div>
+                            <div class="divider">
+                                <a href="#" data-toggle="modal" data-target="#deleteAccModal">Darse de baja</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <!-- Imagen de perfil -->
+                        <div class="block block-account">
+                            <form id="imageAccForm" class="form-inline">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile0" name="imageAcc">
+                                    <label class="custom-file-label" id="custom-file-label0" for="inputGroupFile0" aria-describedby="inputGroupFileAddon" style="background: #2d3035; color: #979a9f; border: 1px solid #444951;">Click para seleccionar
+                                        la imagen (5Mb máx)</label>
+                                </div>
+                                <div class="rounded-lg text-center p-3 preview">
+                                    <img src="" class="img-fluid" id="preview0">
+                                </div>
+                                <button id="submitImageAcc" name="submitImageAcc" type="submit" class="btn btn-primary button"><span>Subir imagen </span></button>
+                                <div class="userImageErrorRes response"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Unsubscribe -->
+                <div id="deleteAccModal" tabindex="-1" role="dialog" aria-labelledby="deleteAccModalLabel" aria-hidden="true" class="modal fade text-left">
+                    <div role="document" class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Estas seguro que quieres eliminar tu cuenta?</p>
+                                <p>Todos tus datos personales y proyectos se eliminarán.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="submitDeleteAcc" name="submitDeleteAcc" class="btn btn-primary button"><span>Eliminar cuenta definitivamente </span></button>
+                                <div class="userDeleteAcc response"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- footer -->
+{% include 'Admin/Templates/footer.html' %}
+{% endblock %}

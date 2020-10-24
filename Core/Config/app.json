@@ -5,7 +5,7 @@
     },
     "db": {
         "host": "localhost",
-        "dbname": "mvc_database",
+        "dbname": "mvc_2020",
         "user": "root",
         "pass": "",
         "port": "3306"

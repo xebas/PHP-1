@@ -1,10 +1,66 @@
 {
     "": {
-        "controller": "HomeController",
-        "action": "renderHome"
+        "controller": "AuthController",
+        "action": "renderLogin"
     },
-    "home": {
-        "controller": "HomeController",
-        "action": "renderHome"
+    "login": {
+        "controller": "AuthController",
+        "action": "renderLogin"
+    },
+    "register": {
+        "controller": "AuthController",
+        "action": "renderRegister"
+    },
+    "lostPass": {
+        "controller": "AuthController",
+        "action": "renderLostPass"
+    },
+    "account": {
+        "controller": "AdminController",
+        "action": "renderAccount"
+    },
+    "projects": {
+        "controller": "ProjectController",
+        "action": "renderProjects"
+    },
+    "userLogin": {
+        "controller": "AuthController",
+        "action": "userLogin"
+    },
+    "userRegister": {
+        "controller": "AuthController",
+        "action": "userRegister"
+    },
+    "registerConfirm": {
+        "controller": "AuthController",
+        "action": "registerConfirm"
+    },
+    "lostPassEmail": {
+        "controller": "AuthController",
+        "action": "lostPassEmail"
+    },
+    "close": {
+        "controller": "AdminController",
+        "action": "closeSession"
+    },
+    "userEditAccount": {
+        "controller": "AdminController",
+        "action": "userEditAccount"
+    },
+    "userDeleteAccount": {
+        "controller": "AdminController",
+        "action": "userDeleteAccount"
+    },
+    "addProject": {
+        "controller": "ProjectController",
+        "action": "addProject"
+    },
+    "deleteProject": {
+        "controller": "ProjectController",
+        "action": "deleteProject"
+    },
+    "userEditProject": {
+        "controller": "ProjectController",
+        "action": "userEditProject"
     }
 }

@@ -2,21 +2,52 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <meta name="description" content="Proyecto PHP MVC educuacional para curso IFCD0210">
+    <meta name="keywords" content="html5, css3, jquery, php, mysql, mvc">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="public/css/main.css">
-    {% block headLinks %}{% endblock %}
+    <link rel="shortcut icon" href="public/img/favicon.ico">
+    <!-- NO SESSION -->
+    <!-- CSS files  -->
+    <link rel="stylesheet" href="public/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700">
+    <link rel="stylesheet" href="public/css/main.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="public/css/auth.css">
+    <!-- JavaScript files -->
+    <script src="public/vendor/jquery/jquery.min.js"></script>
+    <script src="public/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="public/vendor/jquery-validation/additional-methods.min.js"></script>
+    <script src="public/vendor/Semantic-UI/semantic.min.js"></script>
+    <script src="public/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="public/vendor/polygonizr.min.js"></script>
+    <script src="public/vendor/bs-custom-file-input.min.js"></script>
+    <script src="public/js/front.js"></script>
+    <script src="public/js/auth.js"></script>
+    <!-- SESSION -->
+    {% if session.SESSID is defined %}
+    <!-- CSS files -->
+    <link rel="stylesheet" href="public/vendor/photoswipe/photoswipe.css">
+    <link rel="stylesheet" href="public/vendor/photoswipe/default-skin/default-skin.css">
+    <link rel="stylesheet" href="public/vendor/Semantic-UI/search.min.css">
+    <link rel="stylesheet" href="public/vendor/Semantic-UI/transition.min.css">
+    <link rel="stylesheet" href="public/css/projects.css">
+    <!-- JavaScript files -->
+    <script src="public/vendor/photoswipe/photoswipe.min.js"></script>
+    <script src="public/vendor/photoswipe/photoswipe-ui-default.min.js"></script>
+    <script src="public/vendor/photoswipe/imagesloaded.pkgd.min.js"></script>
+    <script src="public/vendor/masonry.pkgd.min.js"></script>
+    <script src="public/js/projects.js"></script>
+    <script src="public/js/account.js"></script>
+
+    {% endif %}
 </head>
 
 <body>
-    {% block menu %}{% endblock %}
-    <main>
-        {% block main %}{% endblock %}
-    </main>
-    <footer class="center">
-        <p>{{ "now"|date("Y") }} © MVC PHP</p>
-    </footer>
+    {% block body %}{% endblock %}
 </body>
 
 </html>

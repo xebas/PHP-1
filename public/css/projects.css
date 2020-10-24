@@ -1,0 +1,58 @@
+/*
+* ==========================================================
+*     PROJECTS PAGE
+* ==========================================================
+*/
+
+.addProductLink {
+    float: right;
+    margin-top: -23px;
+}
+
+.e-d-Project {
+    font-size: 1.3em;
+    color: #DB6574;
+}
+
+.e-d-Project span {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.ui.search .prompt {
+    border-radius: 5px;
+}
+
+.ui.search>.results {
+    width: 100%;
+}
+
+/*
+* ==========================================================
+*     PhotoSwipe: Library for image gallery
+* ==========================================================
+*/
+
+.my-gallery {
+    width: 100%;
+    float: left;
+}
+
+.my-gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.my-gallery figure {
+    display: block;
+    float: left;
+}
+
+.my-gallery figcaption {
+    display: none;
+}
+
+.pswp--zoom-allowed .pswp__img {
+    object-fit: contain;
+}

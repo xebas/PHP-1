@@ -6,7 +6,7 @@ class Router
 {
     protected $routes;
 
-    function __construct()
+    public function __construct()
     {
         $this->getRoutes();
     }
@@ -19,19 +19,12 @@ class Router
 
     public function getController($uri)
     {
-
         $uri = ltrim($uri, '/');
         $uri = substr($uri, strpos($uri, '/') + 1);
-        if (strpos($uri, '?') !== false) {
-            $uri = substr($uri, 0, strpos($uri, '?'));
-        }
 
         if (array_key_exists($uri, $this->routes)) {
-
             $class = '\\App\Controllers\\' . $this->routes[$uri]['controller'];
-
             if (class_exists($class)) {
-
                 $reflector = new \ReflectionClass($class);
                 return $reflector->newInstance();
             } else {
@@ -44,17 +37,8 @@ class Router
 
     public function getAction($uri)
     {
-
         $uri = ltrim($uri, '/');
         $uri = substr($uri, strpos($uri, '/') + 1);
-        if (strpos($uri, '?') !== false) {
-            $uri = substr($uri, 0, strpos($uri, '?'));
-        }
-
-        $action = $this->routes[$uri]['action'];
-
-        return is_null($action)
-            ? 'index'
-            : $action;
+        return $this->routes[$uri]['action'];
     }
 }

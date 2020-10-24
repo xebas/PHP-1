@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}lostPass{% endblock %}
+
+{% block body %}
+<main>
+    <div class="login-page">
+        <div class="container d-flex align-items-center">
+            <div class="form-holder has-shadow">
+                <div class="row">
+                    <!-- Logo & Information Panel-->
+                    <div class="col-lg-6 formLeft">
+                        <div class="info d-flex align-items-center">
+                            <div class="content">
+                                <div class="logo">
+                                    <h2>MVC - Proyectos</h2>
+                                </div>
+                                <p>App Web en PHP - MySQL mediante el patrón MVC</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Form Panel  -->
+                    <div class="col-lg-6">
+                        <div class="form d-flex align-items-center">
+                            <div class="content">
+                                <form id="lostPassForm">
+                                    <div class="form-group">
+                                        <input id="login-username" type="email" name="emailLostPass" required data-msg-required="Por favor, introduce tu email de registro" data-msg-email="Por favor, introduce un email correcto" class="input-material">
+                                        <label for="login-username" class="label-material">Introduce tu email de registro</label>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <button id="submitlostPass" name="submitLostPass" type="submit" class="btn btn-primary button"><span>Recuperar contraseña </span></button>
+                                    </div>
+                                </form>
+                                <div class="text-center">
+                                    <span class="signup link" id="login">Volver</span>
+                                    <div class="response"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights text-center">
+            <p>Realizado por <a href="https://github.com/armandolap" class="external" target="_blank">IFCD0210</a></p>
+        </div>
+    </div>
+</main>
+{% endblock %}

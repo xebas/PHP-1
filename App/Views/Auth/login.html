@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}login{% endblock %}
+
+{% block body %}
+<main>
+    <div class="login-page">
+        <div class="container d-flex align-items-center">
+            <div class="form-holder has-shadow">
+                <div class="row">
+                    <!-- Logo & Information Panel-->
+                    <div class="col-lg-6 formLeft">
+                        <div class="info d-flex align-items-center">
+                            <div class="content">
+                                <div class="logo">
+                                    <h2>MVC - Proyectos</h2>
+                                </div>
+                                <p>App Web en PHP - MySQL mediante el patrón MVC</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Form Panel  -->
+                    <div class="col-lg-6">
+                        <div class="form d-flex align-items-center">
+                            <div class="content">
+                                <form id="logForm">
+                                    <div class="form-group">
+                                        <input id="login-username" type="email" name="loginUsername" required data-msg-required="Por favor, introduce tu email" data-msg-email="Por favor, introduce un email correcto" class="input-material">
+                                        <label for="login-username" class="label-material">Email</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="login-password" type="password" name="loginPassword" required data-msg-required="Por favor, introduce tu contraseña" class="input-material">
+                                        <label for="login-password" class="label-material">Contraseña</label>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <button id="submitLog" name="submitLog" type="submit" class="btn btn-primary button"><span>Entrar </span></button>
+                                    </div>
+                                    <div class="form-group rememberMe text-center">
+                                        <input id="rememberMe-agree" name="rememberMe" type="checkbox" class="checkbox-template">
+                                        <label for="rememberMe-agree">Recuérdame</label>
+                                    </div>
+                                </form>
+                                <div class="text-center">
+                                    <span class="signup link" id="lostPass">Has olvidado tu contraseña?</span><br>
+                                    <small>No tienes cuenta? </small>
+                                    <span class="signup link" id="register">Regístrate</span>
+                                    <div class="response">
+                                        {% if regConfirmMsg is defined %} {{ regConfirmMsg | raw }} {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights text-center">
+            <p>Realizado por <a href="https://github.com/armandolap" class="external" target="_blank">IFCD0210</a></p>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}registro{% endblock %}
+
+{% block body %}
+<main>
+    <div class="login-page">
+        <div class="container d-flex align-items-center">
+            <div class="form-holder has-shadow">
+                <div class="row">
+                    <!-- Logo & Information Panel-->
+                    <div class="col-lg-6 formLeft">
+                        <div class="info d-flex align-items-center">
+                            <div class="content">
+                                <div class="logo">
+                                    <h2>MVC - Proyectos</h2>
+                                </div>
+                                <p>App Web en PHP - MySQL mediante el patrón MVC</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Form Panel -->
+                    <div class="col-lg-6">
+                        <div class="form d-flex align-items-center">
+                            <div class="content">
+                                <form id="regForm">
+                                    <div class="form-group-material">
+                                        <input id="register-nick" type="text" name="registerNick" required data-msg-required="Por favor, introduce tu nick" class="input-material">
+                                        <label for="register-nick" class="label-material">Nick</label>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <input id="register-email" type="email" name="registerEmail" required data-msg-required="Por favor, introduce tu email" data-msg-email="Por favor, introduce un email correcto" class="input-material">
+                                        <label for="register-email" class="label-material">Email</label>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <input id="register-password" type="password" name="registerPassword" required minlength="6" data-msg-required="Por favor, introduce tu contraseña"
+                                            data-msg-minlength="Por favor, introduce tu contraseña de 6 caracteres mínimo" class="input-material">
+                                        <label for="register-password" class="label-material">Contraseña</label>
+                                    </div>
+                                    <div class="form-group-material">
+                                        <input id="register-password2" type="password" name="registerPassword2" required data-rule-equalTo="#register-password" data-msg-required="Por favor, repite tu contraseña"
+                                            data-msg-equalTo="Las contraseñas no coinciden" class="input-material">
+                                        <label for="register-password2" class="label-material">Repetir Contraseña</label>
+                                    </div>
+                                    <div class="form-group terms-conditions text-center">
+                                        <input id="register-agree" name="registerAgree" type="checkbox" required value="1" data-msg-required="Acepta la política de privacidad" class="checkbox-template">
+                                        <label for="register-agree">Acepto la política de privacidad</label>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <button id="submitReg" name="submitReg" type="submit" class="btn btn-primary button"><span>Registrarse </span></button>
+                                    </div>
+                                    <div class="text-center">
+                                        <small>Ya tienes cuenta? </small>
+                                        <span class="signup link" id="login">Entra</span>
+                                        <div class="response"></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyrights text-center">
+            <p>Realizado por <a href="https://github.com/armandolap" class="external" target="_blank">IFCD0210</a></p>
+        </div>
+    </div>
+</main>
+{% endblock %}
