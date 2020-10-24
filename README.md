@@ -19,7 +19,6 @@ $ composer install
 | Rama | Descripción |
 | ------ | ------ |
 | template | Plantilla MVC básica funcional |
-| auth | Registro y login con confirmación de registro mediante email (validación sólo en backend) |
 | projects | CRUD de projectos de usuario (nombre, descripción e imagen) y búsqueda |
 
 ### DIAGRAMA
