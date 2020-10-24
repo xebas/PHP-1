@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+
+	# obligatorio para que funcionen las directivas del "htaccess"
+	RewriteEngine on
+	# redirecciona a la carpeta "public". $1: Fuerza que se cumpla la condición (rule) del 1er paréntesis
+	RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ public/$1
+
+</IfModule>
