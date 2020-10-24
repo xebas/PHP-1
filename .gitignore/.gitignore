@@ -1,0 +1,5 @@
+# dependencies
+/vendor
+
+# misc
+.DS_Store
