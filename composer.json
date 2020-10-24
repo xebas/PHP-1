@@ -1,0 +1,25 @@
+{
+    "name": "proyecto/mvc",
+    "description": "PLANTILLA MVC DIDÁCTICA PARA PROYECTO FINAL",
+    "license": "public",
+    "authors": [
+        {
+            "name": "CIFO VIoleta 2020",
+            "email": "mvc@mvc.com"
+        }
+    ],
+
+    "require": {
+        "php": ">=7.0",
+        "components/jquery": ">=3.4.1",
+        "twig/twig": ">=2.0",
+        "phpmailer/phpmailer": ">=6.1"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "App\\": "App/"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "": {
+        "controller": "HomeController",
+        "action": "renderHome"
+    },
+    "home": {
+        "controller": "HomeController",
+        "action": "renderHome"
+    }
+}

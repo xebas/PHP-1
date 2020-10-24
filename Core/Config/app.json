@@ -1,0 +1,16 @@
+{
+    "front": {
+        "class": "FrontController",
+        "namespace": "Core\\"
+    },
+    "db": {
+        "host": "localhost",
+        "dbname": "mvc_database",
+        "user": "root",
+        "pass": "",
+        "port": "3306"
+    },
+    "show_errors": {
+        "display": "true"
+    }
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="public/css/main.css">
+    {% block headLinks %}{% endblock %}
+</head>
+
+<body>
+    {% block menu %}{% endblock %}
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+    <footer class="center">
+        <p>{{ "now"|date("Y") }} © MVC PHP</p>
+    </footer>
+</body>
+
+</html>
