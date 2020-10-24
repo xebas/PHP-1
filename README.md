@@ -30,7 +30,7 @@ $ composer install
 | Rama | Descripción |
 | ------ | ------ |
 | template | Plantilla MVC básica funcional |
-| projectsAjax | REGISTRO / LOGIN / CRUD de projectos de usuario (título, descripción e imagen) y búsqueda |
+| projects | REGISTRO / LOGIN / CRUD de projectos de usuario (título, descripción e imagen) y búsqueda |
 
 ### DIAGRAMA
 Se adjunta en la carpeta raíz del proyecto una diagrama (pdf) del patrón MVC utilizado en la plantilla
